@@ -1,0 +1,20 @@
+include ../scripts/mn-core-rule.ninja
+
+build all: phony gen-asm run-sim
+default all
+
+build gen-asm: phony add.asm dump.asm passa.asm
+build run-sim: phony add.txt dump.txt passa.txt
+
+#----------------------------------------------------------------
+build add.asm: gen-mncore2-asm add.vsm
+build add.txt: run-mncore2-sim add.asm
+
+#----------------------------------------------------------------
+build dump.asm: gen-mncore2-asm dump.vsm
+build dump.txt: run-mncore2-sim dump.asm
+
+#----------------------------------------------------------------
+build passa.asm: gen-mncore2-asm passa.vsm
+build passa.txt: run-mncore2-sim passa.asm
+

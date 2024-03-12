@@ -1,0 +1,7 @@
+ninja_required_version = 1.5.1
+
+rule gen-mncore2-asm
+    command = assemble3 $in > $out
+
+rule run-mncore2-sim
+    command = gpfn3_package_main -i $in -d $out
